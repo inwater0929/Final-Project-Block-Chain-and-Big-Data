@@ -231,7 +231,7 @@ export type UseScaffoldEventConfig<
   >,
 > = {
   contractName: TContractName;
-  eventName: TEventName;
+  eventName?: TEventName;
   chainId?: AllowedChainIds;
 } & IsContractDeclarationMissing<
   Omit<UseWatchContractEventParameters, "onLogs" | "address" | "abi" | "eventName"> & {
@@ -339,6 +339,7 @@ export const simulateContractWriteAndNotifyError = async ({
   wagmiConfig: Config;
   writeContractParams: WriteContractVariables<Abi, string, any[], Config, number>;
 }) => {
+  console.log(params);
   try {
     await simulateContract(wagmiConfig, params);
   } catch (error) {

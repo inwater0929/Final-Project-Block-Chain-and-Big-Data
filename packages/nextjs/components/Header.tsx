@@ -9,31 +9,37 @@ import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
-type HeaderMenuLink = {
-  label: string;
-  href: string;
-  icon?: React.ReactNode;
-};
-
-export const menuLinks: HeaderMenuLink[] = [
+const navLinks = [
   {
     label: "Home",
     href: "/",
+    icon: undefined,
   },
-
   {
-    label: "Debug Contracts",
+    label: "Debug",
     href: "/debug",
     icon: <BugAntIcon className="h-4 w-4" />,
   },
+  {
+    label: "Trade",
+    href: "/trade",
+    icon: undefined,
+  },
+  {
+    label: "Block Explorer",
+    href: "/blockexplorer",
+    icon: undefined,
+  },
 ];
+
+export const menuLinks = navLinks;
 
 export const HeaderMenuLinks = () => {
   const pathname = usePathname();
 
   return (
     <>
-      {menuLinks.map(({ label, href, icon }) => {
+      {navLinks.map(({ label, href, icon }) => {
         const isActive = pathname === href;
         return (
           <li key={href}>

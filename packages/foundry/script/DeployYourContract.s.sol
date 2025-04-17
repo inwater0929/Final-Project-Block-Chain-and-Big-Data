@@ -2,7 +2,9 @@
 pragma solidity ^0.8.19;
 
 import "./DeployHelpers.s.sol";
-import "../contracts/YourContract.sol";
+import "../contracts/CLOB.sol";
+import { BTC } from "../contracts/BTC.sol";
+import { USDC } from "../contracts/USDC.sol";
 
 /**
  * @notice Deploy script for YourContract contract
@@ -25,6 +27,12 @@ contract DeployYourContract is ScaffoldETHDeploy {
      *      - Export contract addresses & ABIs to `nextjs` packages
      */
     function run() external ScaffoldEthDeployerRunner {
-        new YourContract(deployer);
+        BTC btc = new BTC();
+        USDC usdc = new USDC();
+
+        new CLOB(address(btc), address(usdc));
+        
+        btc.mint(0xB8232dcD45A5a2f1D2f1D73e04D00740c1911Ee2,100 ether);
+        usdc.mint(0xB8232dcD45A5a2f1D2f1D73e04D00740c1911Ee2,100 ether);
     }
 }
