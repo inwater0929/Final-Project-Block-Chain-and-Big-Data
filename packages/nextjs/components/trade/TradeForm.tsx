@@ -43,7 +43,6 @@ export const TradeForm = () => {
       setSubmitting(false);
     }
   };
-
   return (
     <div className="space-y-4">
       {/* 买卖选择器 */}
@@ -54,7 +53,7 @@ export const TradeForm = () => {
           }`}
           onClick={() => setTradeType("buy")}
         >
-          买入
+          買入
         </button>
         <button
           className={`flex-1 px-4 py-2 rounded-r-lg border border-l-0 transition-all duration-300 ease-in-out ${
@@ -62,18 +61,18 @@ export const TradeForm = () => {
           }`}
           onClick={() => setTradeType("sell")}
         >
-          卖出
+          賣出
         </button>
       </div>
 
       {/* 价格输入 */}
       <div className="form-control">
         <label className="label">
-          <span className="label-text">价格</span>
+          <span className="label-text">價格</span>
         </label>
         <input
           type="number"
-          placeholder="输入价格"
+          placeholder="輸入價格"
           className="input input-bordered w-full"
           value={price}
           onChange={e => setPrice(e.target.value)}
@@ -85,11 +84,11 @@ export const TradeForm = () => {
       {/* 数量输入 */}
       <div className="form-control">
         <label className="label">
-          <span className="label-text">数量(支付数量)</span>
+          <span className="label-text">數量(支付數量)</span>
         </label>
         <input
           type="number"
-          placeholder="输入数量"
+          placeholder="輸入數量"
           className="input input-bordered w-full"
           value={amount}
           onChange={e => setAmount(e.target.value)}
@@ -104,14 +103,14 @@ export const TradeForm = () => {
           tokenName={tradeType === "buy" ? "BTC" : "USDC"}
           amount={amount}
           className="btn btn-primary w-full"
-          approveText={`授权 ${tradeType === "buy" ? "BTC" : "USDC"}`}
+          approveText={`授權 ${tradeType === "buy" ? "BTC" : "USDC"}`}
         >
           <button
             className={`btn w-full ${tradeType === "buy" ? "btn-success" : "btn-error"}`}
             onClick={handleSubmitOrder}
             disabled={!connectedAddress || !price || !amount || isPlacingOrder || submitting}
           >
-            {submitting ? "提交中..." : tradeType === "buy" ? "买入" : "卖出"}
+            {submitting ? "提交中..." : tradeType === "buy" ? "買入" : "賣出"}
           </button>
         </ApproveButton>
       </div>

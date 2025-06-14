@@ -8,7 +8,7 @@ export const TradeHistory = () => {
 
   // 格式化时间 - 由于没有实际时间戳，这里使用区块号
   const formatBlockNumber = (blockNumber: number) => {
-    return `区块 #${blockNumber}`;
+    return `區塊 #${blockNumber}`;
   };
 
   return (
@@ -16,16 +16,16 @@ export const TradeHistory = () => {
       <table className="table table-xs w-full">
         <thead>
           <tr>
-            <th>区块</th>
-            <th>价格</th>
-            <th>数量</th>
+            <th>區塊</th>
+            <th>價格</th>
+            <th>數量</th>
           </tr>
         </thead>
         <tbody>
           {orderMatchedEvents.length === 0 ? (
             <tr>
               <td colSpan={3} className="text-center py-4">
-                暂无成交记录
+                暫無成交紀錄
               </td>
             </tr>
           ) : (

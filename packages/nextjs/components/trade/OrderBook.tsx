@@ -33,7 +33,7 @@ const calculateMidPrice = (mergedAsks: MergedOrderType[], mergedBids: MergedOrde
   if (mergedBids.length > 0 && mergedBids[0].price) {
     return formatPrice(mergedBids[0].price);
   }
-  return "等待市场";
+  return "等待市場";
 };
 
 export const OrderBook = () => {
@@ -55,7 +55,7 @@ export const OrderBook = () => {
     return (
       <div className="flex flex-col h-full items-center justify-center">
         <span className="loading loading-spinner loading-lg"></span>
-        <p className="mt-2">加载订单簿...</p>
+        <p className="mt-2">加載訂單簿...</p>
       </div>
     );
   }
@@ -77,16 +77,16 @@ export const OrderBook = () => {
         <table className="table table-xs w-full">
           <thead>
             <tr>
-              <th>价格</th>
-              <th>数量</th>
-              <th>订单数</th>
+              <th>賣單價格</th>
+              <th>賣單數量</th>
+              <th>賣單訂單數</th>
             </tr>
           </thead>
           <tbody>
             {mergedAsks.length === 0 ? (
               <tr>
                 <td colSpan={3} className="text-center py-4">
-                  暂无卖单
+                  暫無賣單
                 </td>
               </tr>
             ) : (
@@ -114,16 +114,16 @@ export const OrderBook = () => {
         <table className="table table-xs w-full">
           <thead>
             <tr>
-              <th>价格</th>
-              <th>数量</th>
-              <th>订单数</th>
+              <th>買單價格</th>
+              <th>買單數量</th>
+              <th>買單訂單數</th>
             </tr>
           </thead>
           <tbody>
             {mergedBids.length === 0 ? (
               <tr>
                 <td colSpan={3} className="text-center py-4">
-                  暂无买单
+                  暫無買單
                 </td>
               </tr>
             ) : (

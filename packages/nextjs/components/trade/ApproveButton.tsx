@@ -22,7 +22,7 @@ export const ApproveButton = ({
   amount,
   children,
   className = "",
-  approveText = "授权",
+  approveText = "授權",
 }: ApproveButtonProps) => {
   const { address: connectedAddress } = useAccount();
   const [hasAllowance, setHasAllowance] = useState(false);
@@ -52,7 +52,7 @@ export const ApproveButton = ({
         const amountBigInt = parseEther(amount);
         setHasAllowance(BigInt(allowance.toString()) >= amountBigInt);
       } catch (error) {
-        console.error("解析金额错误:", error);
+        console.error("解析金額錯誤:", error);
         setHasAllowance(false);
       }
     } else {
@@ -73,17 +73,17 @@ export const ApproveButton = ({
         },
         {
           onBlockConfirmation: txnReceipt => {
-            console.log("📦 交易区块哈希", txnReceipt.blockHash);
-            notification.success("授权已确认");
+            console.log("📦 交易區塊哈希", txnReceipt.blockHash);
+            notification.success("授權已確認");
             setHasAllowance(true);
           },
         },
       );
 
-      notification.success("授权请求已发送");
+      notification.success("授權請求已發送");
     } catch (error) {
-      console.error("授权失败:", error);
-      notification.error("授权失败");
+      console.error("授權失敗:", error);
+      notification.error("授權失敗");
     }
   };
 
@@ -105,7 +105,7 @@ export const ApproveButton = ({
             d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
           />
         </svg>
-        请输入
+        請輸入
       </button>
     );
   }
@@ -118,7 +118,7 @@ export const ApproveButton = ({
   // 否则显示授权按钮
   return (
     <button className={className} onClick={handleApprove} disabled={!clobContract || isPending}>
-      {isPending ? "授权中..." : approveText}
+      {isPending ? "授權中..." : approveText}
     </button>
   );
 };
